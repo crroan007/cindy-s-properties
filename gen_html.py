@@ -252,7 +252,8 @@ HTML_TEMPLATE = r"""<!doctype html>
     <b id="hd-props">5</b> properties ·
     <b id="hd-entries">0</b> line items ·
     <b id="hd-totals">0</b> monthly totals ·
-    DB: <code>lauren_way_rental.db</code>
+    DB: <code>lauren_way_rental.db</code> ·
+    <a href="edwin.html" style="color:var(--accent)">Edwin's view: 1120 Lauren Way ↗</a>
   </div>
 </header>
 

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>1120 Lauren Way (Acworth) — Rent / Expense / Profit</title>
+<style>
+  :root {
+    --bg:#0a0d13; --panel:#12161f; --panel2:#1a2030; --border:#262e42;
+    --text:#e6e9ef; --muted:#7c8499; --dim:#5b6378; --accent:#5aa9ff;
+    --pos:#4ade80; --neg:#f87171; --warn:#fbbf24;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font:14px/1.5 -apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--text); }
+  header { padding:22px 26px; background:linear-gradient(180deg,var(--panel),var(--bg)); border-bottom:1px solid var(--border); }
+  header h1 { margin:0 0 6px; font-size:22px; font-weight:700; letter-spacing:-0.01em; }
+  header .sub { color:var(--muted); font-size:13px; }
+  header .links { margin-top:10px; font-size:12px; }
+  header .links a { color:var(--accent); text-decoration:none; margin-right:14px; }
+  header .links a:hover { text-decoration:underline; }
+  main { padding:22px 26px; max-width:1100px; margin:0 auto; display:flex; flex-direction:column; gap:18px; }
+  section { background:var(--panel); border:1px solid var(--border); border-radius:9px; padding:14px 16px; }
+  section h2 { margin:0 0 12px; font-size:13px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); }
+
+  .kpis { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; }
+  .kpi { background:var(--panel2); border:1px solid var(--border); border-radius:7px; padding:12px 14px; }
+  .kpi .label { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px; }
+  .kpi .value { font-size:24px; font-weight:700; font-variant-numeric:tabular-nums; }
+  .kpi .value.pos { color:var(--pos); }
+  .kpi .value.neg { color:var(--neg); }
+  .kpi .delta { color:var(--muted); font-size:11px; margin-top:4px; }
+
+  table { width:100%; border-collapse:collapse; font-size:13.5px; }
+  th, td { padding:7px 10px; border-bottom:1px solid var(--border); text-align:right; vertical-align:middle; font-variant-numeric:tabular-nums; }
+  th:first-child, td:first-child { text-align:left; }
+  th { color:var(--muted); font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:.04em; background:var(--panel); position:sticky; top:0; }
+  tr:hover td { background:var(--panel2); }
+  tr.year-sub td { background:var(--panel2); font-weight:600; border-top:1px solid var(--border); }
+  tr.grand td { background:#162033; font-weight:700; font-size:14.5px; border-top:2px solid var(--accent); }
+  .pos { color:var(--pos); }
+  .neg { color:var(--neg); }
+  .dim { color:var(--dim); }
+  .warn-pill { display:inline-block; background:rgba(251,191,36,0.18); color:var(--warn); padding:1px 7px; border-radius:99px; font-size:10.5px; margin-left:6px; cursor:help; }
+  a.src { color:var(--accent); text-decoration:none; font-size:11px; padding:1px 7px; border:1px solid var(--border); border-radius:4px; margin-right:3px; }
+  a.src:hover { background:var(--panel2); }
+
+  .notes { color:var(--muted); font-size:12px; line-height:1.6; }
+  .notes b { color:var(--text); }
+  footer { padding:18px 26px; color:var(--dim); font-size:11px; border-top:1px solid var(--border); text-align:center; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>1120 Lauren Way · Acworth, GA</h1>
+  <div class="sub">Monthly Rent / Expense / Profit — from Cindy's Airbnb P&amp;L workbooks, Sept&nbsp;2017 – Dec&nbsp;2020</div>
+  <div class="links">
+    <a href="index.html">← Full portfolio dashboard</a>
+    <a href="https://github.com/crroan007/cindy-s-properties" target="_blank">Source repo ↗</a>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <h2>Lifetime totals</h2>
+    <div class="kpis"><div class="kpi"><div class="label">Total Rent collected</div><div class="value">$66,196</div><div class="delta">over 40 months</div></div><div class="kpi"><div class="label">Total Expense</div><div class="value">$79,522</div><div class="delta">all categories combined</div></div><div class="kpi"><div class="label">Net Profit</div><div class="value neg">$-13,326</div><div class="delta">Rent − Expense</div></div><div class="kpi"><div class="label">Avg monthly Rent</div><div class="value">$1,655</div><div class="delta">30/40 months produced rent</div></div><div class="kpi"><div class="label">Avg monthly Profit</div><div class="value neg">$-333</div><div class="delta">across full period</div></div></div>
+  </section>
+
+  <section>
+    <h2>Monthly breakdown <span style="text-transform:none;letter-spacing:0;color:var(--dim);font-weight:400">— months flagged ⚠ have stale template data in the source spreadsheet</span></h2>
+    <table>
+      <thead>
+        <tr><th>Period</th><th>Rent</th><th>Expense</th><th>Profit</th><th>Source workbook</th></tr>
+      </thead>
+      <tbody><tr><td>2017-09</td><td>$0.00</td><td>$708.00</td><td class="neg">$-708.00</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1c34zYlAktHI5v__rj6ehdiSUr6dd6Gv9EYiFqJpLnJw/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2017-09.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2017-10</td><td>$1,638.00</td><td>$1,480.59</td><td class="pos">$157.41</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/19sG6iGh0P1c23N-Hb4ceRnX3awgHbYNOed5idMvJbls/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2017-10.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2017-11</td><td>$1,843.29</td><td>$1,223.91</td><td class="pos">$619.38</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1Kx9OFW2NJfa4KdXkRxHmZZx8YKAoclyhl6T1hGr_M9g/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2017-11.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2017-12</td><td>$1,880.00</td><td>$1,650.29</td><td class="pos">$229.71</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1mHqkH1vuaicEqPDiRK9X1NiktgoEzrbLzpoBtIGh7ck/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2017-12.xlsx" target="_blank">XLSX</a></td></tr>
+<tr class="year-sub"><td>2017 total</td><td>$5,361.29</td><td>$5,062.79</td><td class="pos">$298.50</td><td></td></tr>
+<tr><td>2018-01</td><td>$1,237.00</td><td>$6,636.58</td><td class="neg">$-5,399.58</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/15o9NWTbHf6meo-V6qQ8-JTALNY-GBiwXJjh8JNXsqd0/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2018-01.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2018-02</td><td>$1,490.00</td><td>$1,160.69</td><td class="pos">$329.31</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1B984xEsXf75Uh2S0TXknk1usci_ItntfxXuwudebneQ/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2018-02.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2018-03<span class="warn-pill" title="Identical template — source has the same rent and expense across these three months. Likely copy-paste.">⚠</span></td><td>$1,554.76</td><td>$1,203.83</td><td class="pos">$350.93</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/13RPzrykK0VHuq3Ob7nsdf07cBFM1PPV2DIuWS4OnyNU/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2018-03.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2018-04<span class="warn-pill" title="Identical template — source has the same rent and expense across these three months. Likely copy-paste.">⚠</span></td><td>$1,554.76</td><td>$1,203.83</td><td class="pos">$350.93</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/10hY5Mzax-XefrukbRTR7Tb2lmhsxWS-AVszYqfIh3w4/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2018-04.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2018-05<span class="warn-pill" title="Identical template — source has the same rent and expense across these three months. Likely copy-paste.">⚠</span></td><td>$1,554.76</td><td>$1,203.83</td><td class="pos">$350.93</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1D_4RuY0kUAq1ZPMWNLdhnvQV1udjdou54kg_3Q1Kfps/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2018-05.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2018-06</td><td>$3,533.63</td><td>$5,254.58</td><td class="neg">$-1,720.95</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1LtnowLCEEJh8VBpRpToRXiz8Wimvkh82QrxtZPNCNLE/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2018-06.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2018-07</td><td>$7,046.99</td><td>$3,094.63</td><td class="pos">$3,952.36</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1Xfj1CnxzsxMOmj-DZ8S6BZ2ywpvGrO7MJolRbF1ZSYg/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2018-07.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2018-08</td><td>$1,373.00</td><td>$1,257.43</td><td class="pos">$115.57</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1e-dRZQEu2Zdn6QslESjmaCnb95X7eMeN5lAE9qHb2ho/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2018-08.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2018-09</td><td>$1,077.60</td><td>$1,532.48</td><td class="neg">$-454.88</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1jff4yikbbZVaDTzncnerFMkuG8pXHjKADuLq7d1SK3Q/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2018-09.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2018-10</td><td>$2,350.00</td><td>$5,468.69</td><td class="neg">$-3,118.69</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1ovT-vTvG97Mc6dlO3KQy5NTttaZNIybBQgskAA3tkJ0/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2018-10.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2018-11</td><td>$1,554.76</td><td>$812.84</td><td class="pos">$741.92</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1uqiEmuMazaSx83T0iWwITP9xJwbFYfMwQfI0W4K7aEM/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2018-11.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2018-12</td><td>$2,550.00</td><td>$302.08</td><td class="pos">$2,247.92</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1y_EgIql3HO_un5sG-iE9UOhOiRHTu8zbf_d0cDEF86s/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2018-12.xlsx" target="_blank">XLSX</a></td></tr>
+<tr class="year-sub"><td>2018 total</td><td>$26,877.26</td><td>$29,131.49</td><td class="neg">$-2,254.23</td><td></td></tr>
+<tr><td>2019-01</td><td>$1,950.00</td><td>$352.37</td><td class="pos">$1,597.63</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1-XmjCevVp7vC-35YY2cPyiMBgHUQU0NG6mJ_kcg8v14/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2019-01.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2019-02</td><td>$1,950.00</td><td>$916.40</td><td class="pos">$1,033.60</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/18oIDcZdyI-ooI-O2FjV3huVl8TWO4dTw1mNkuuBRMM8/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2019-02.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2019-03</td><td>$1,950.00</td><td>$316.94</td><td class="pos">$1,633.06</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1DMTPqA4ee0txts67ZZuOoNN5CMqWuqWptyvxQwHTzTw/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2019-03.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2019-04</td><td>$1,950.00</td><td>$371.87</td><td class="pos">$1,578.13</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1bYleTWVfgkRgd1ySLVzeEc-ha3UjDzAKbzWPotmmWO4/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2019-04.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2019-05</td><td>$5,137.00</td><td>$2,027.27</td><td class="pos">$3,109.73</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1pGR41xhSWS070nyWaBQgxxi4ElFWtW5SM0_S1UP3MOg/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2019-05.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2019-06</td><td>$2,600.00</td><td>$24,904.27</td><td class="neg">$-22,304.27</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1pL2OqZ3PYBRhaqIE4n-hei9tVsbtJdMuDSmqqTl5s-w/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2019-06.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2019-07</td><td>$2,600.00</td><td>$3,971.67</td><td class="neg">$-1,371.67</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1hHd7lwg79sLqRoDfUhZjlAoe_3M2DvwyG1WAONzMsew/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2019-07.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2019-08</td><td>$2,350.00</td><td>$1,234.34</td><td class="pos">$1,115.66</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/10YTplEW98U7--TT-b_gYi9IcxsjEnesefghATcFN-uw/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2019-08.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2019-09</td><td>$1,763.00</td><td>$1,007.99</td><td class="pos">$755.01</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1HkXni4P2mBNqJeFelq6eay2zhn7vZpKsdXHay9A16yU/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2019-09.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2019-10</td><td>$1,670.00</td><td>$3,865.42</td><td class="neg">$-2,195.42</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1GhEg9ahKmb1rjX55IblpxD6NoiXB_2y_050_PVYgLew/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2019-10.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2019-11</td><td>$2,167.40</td><td>$1,499.41</td><td class="pos">$667.99</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/14osA8eHobwlCbDBIxSGeUBqycjsvLQGk5Od7Y6ysdYs/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2019-11.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2019-12</td><td>$2,239.60</td><td>$561.72</td><td class="pos">$1,677.88</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1yKHrODCjYomiXSJRJSBe8vwP31evOmMqXcx2E1Kt164/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2019-12.xlsx" target="_blank">XLSX</a></td></tr>
+<tr class="year-sub"><td>2019 total</td><td>$28,327.00</td><td>$41,029.67</td><td class="neg">$-12,702.67</td><td></td></tr>
+<tr><td>2020-01</td><td>$2,350.00</td><td>$356.37</td><td class="pos">$1,993.63</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1K1d0Hm_n0cLQbAMhgAWOPz5o8uKEbSmb4wZnn4po5To/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2020-01.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2020-02</td><td>$1,980.00</td><td>$478.56</td><td class="pos">$1,501.44</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1UQMmrnqSFX2-BFvt2P5KLaZpjDL5WOZYgqJ7AAcBYBI/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2020-02.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2020-03</td><td>$1,300.00</td><td>$422.21</td><td class="pos">$877.79</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1SrFoZcOTjbLRHtd9ftV-CfWOFr1q0_019aFAiBS-KvQ/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2020-03.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2020-04<span class="warn-pill" title="Stale template — source spreadsheet has identical hardcoded totals ($352.37 / $0 / -$352.37) across all these months. Treat as unreliable.">⚠</span></td><td>$0.00</td><td>$221.97</td><td class="neg">$-221.97</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1ZTL_wGKcQYTiRn_RL71OIeL5fT7KyhhFtyUu_4PgnnY/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2020-04.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2020-05<span class="warn-pill" title="Stale template — source spreadsheet has identical hardcoded totals ($352.37 / $0 / -$352.37) across all these months. Treat as unreliable.">⚠</span></td><td>$0.00</td><td>$352.37</td><td class="neg">$-352.37</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1uOPpMif1Ltd0TK7_7afBfEas77wwOar9-o32Xv_IPvM/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2020-05.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2020-06<span class="warn-pill" title="Stale template — source spreadsheet has identical hardcoded totals ($352.37 / $0 / -$352.37) across all these months. Treat as unreliable.">⚠</span></td><td>$0.00</td><td>$352.37</td><td class="neg">$-352.37</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1kcqhXXGChqDrlHggQkShvTevlOMvDEwrYj6s0sly2VA/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2020-06.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2020-07<span class="warn-pill" title="Stale template — source spreadsheet has identical hardcoded totals ($352.37 / $0 / -$352.37) across all these months. Treat as unreliable.">⚠</span></td><td>$0.00</td><td>$352.37</td><td class="neg">$-352.37</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/16QFMlkS4qcWXJrhlK86dWhkJyJRe5P1OhAdMo9joRmY/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2020-07.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2020-08<span class="warn-pill" title="Stale template — source spreadsheet has identical hardcoded totals ($352.37 / $0 / -$352.37) across all these months. Treat as unreliable.">⚠</span></td><td>$0.00</td><td>$352.37</td><td class="neg">$-352.37</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1MsfEtvHHjr7g_WcW1zTqxm8o2qYP-RakLQ2d4THeqXM/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2020-08.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2020-09<span class="warn-pill" title="Stale template — source spreadsheet has identical hardcoded totals ($352.37 / $0 / -$352.37) across all these months. Treat as unreliable.">⚠</span></td><td>$0.00</td><td>$352.37</td><td class="neg">$-352.37</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1a6mt4pJnXCGkNvV2cqDnJcuwyOrHntv_Vhl_nTEb1gk/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2020-09.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2020-10<span class="warn-pill" title="Stale template — source spreadsheet has identical hardcoded totals ($352.37 / $0 / -$352.37) across all these months. Treat as unreliable.">⚠</span></td><td>$0.00</td><td>$352.37</td><td class="neg">$-352.37</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/17_8Fq50mNHkxp3sYHHyuxxUQ8GGC3DITdeSMQxsk3cU/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2020-10.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2020-11<span class="warn-pill" title="Stale template — source spreadsheet has identical hardcoded totals ($352.37 / $0 / -$352.37) across all these months. Treat as unreliable.">⚠</span></td><td>$0.00</td><td>$352.37</td><td class="neg">$-352.37</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/12qi3FoUeuKUBqpocythE6cuazCPDVcBHWycYP2sFA3A/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2020-11.xlsx" target="_blank">XLSX</a></td></tr>
+<tr><td>2020-12<span class="warn-pill" title="Stale template — source spreadsheet has identical hardcoded totals ($352.37 / $0 / -$352.37) across all these months. Treat as unreliable.">⚠</span></td><td>$0.00</td><td>$352.37</td><td class="neg">$-352.37</td><td><a class="src" href="https://docs.google.com/spreadsheets/d/1vIgUddd05I393Or2zlTG7xBAmzQcR9wFnDBIw8NGYCo/edit" target="_blank">Drive ↗</a> <a class="src" href="xlsx/2020-12.xlsx" target="_blank">XLSX</a></td></tr>
+<tr class="year-sub"><td>2020 total</td><td>$5,630.00</td><td>$4,298.07</td><td class="pos">$1,331.93</td><td></td></tr>
+<tr class="grand"><td>GRAND TOTAL</td><td>$66,195.55</td><td>$79,522.02</td><td class="neg">$-13,326.47</td><td></td></tr></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Caveats &amp; data-quality notes</h2>
+    <div class="notes">
+<p><b>Period covered:</b> Sept 2017 (first month Lauren Way appears in Cindy's books) through Dec 2020. Months earlier than Sept 2017 are not in the source data.</p>
+<p><b>Stale templates ⚠:</b> Three blocks of months in the source spreadsheets appear to have copy-pasted Total cells that were never refreshed:</p>
+<ul style="margin-top:4px">
+  <li><b>March / April / May 2018</b> — identical Rent ($1,554.76) and Expense ($1,203.83) all three months.</li>
+  <li><b>April through December 2020</b> — every month shows the same hardcoded Total Debits / Credits / Net (<code>$352.37 / $0 / -$352.37</code>), even though the line items differ each month. This is a templating artifact in the source spreadsheet, not a parser bug — verified against the raw cells in the original workbooks.</li>
+</ul>
+<p><b>"Profit" definition:</b> Rent (rental income credits) − every other debit on the Lauren Way tab (mortgage, HOA, utilities, repairs, etc.). It is NOT Net Operating Income — mortgage payments are included as expenses. To see NOI specifically, use the <a href="index.html">full dashboard</a> and toggle Mortgage off in the filter bar.</p>
+<p><b>Every row is auditable:</b> the Drive ↗ link opens Cindy's original Google Sheet for that month. The XLSX link downloads the same file from this repo.</p>
+</div>
+  </section>
+
+</main>
+
+<footer>
+  Generated from <code>lauren_way_rental.db</code> via <code>gen_edwin.py</code>. Single-file, offline-capable. Every "Drive" link opens the original source spreadsheet.
+</footer>
+
+</body>
+</html>
