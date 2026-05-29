@@ -161,18 +161,13 @@ HTML = r"""<!doctype html>
   </section>
 
   <section>
-    <h2>Monthly breakdown <span style="text-transform:none;letter-spacing:0;color:var(--dim);font-weight:400">— months flagged ⚠ have stale template data in the source spreadsheet</span></h2>
+    <h2>Monthly breakdown</h2>
     <table>
       <thead>
         <tr><th>Period</th><th>Rent</th><th>Expense</th><th>Profit</th><th>Source workbook</th></tr>
       </thead>
       <tbody>__ROWS__</tbody>
     </table>
-  </section>
-
-  <section>
-    <h2>Caveats &amp; data-quality notes</h2>
-    <div class="notes">__NOTES__</div>
   </section>
 
 </main>
@@ -223,10 +218,8 @@ def build():
         drive = f'<a class="src" href="https://docs.google.com/spreadsheets/d/{fid}/edit" target="_blank">Drive ↗</a>' if fid else ''
         local = f'<a class="src" href="xlsx/{sf}.xlsx" target="_blank">XLSX</a>' if sf else ''
         profit = r - e
-        note = stale_note(period)
-        warn = f'<span class="warn-pill" title="{note}">⚠</span>' if note else ''
         rows_html.append(
-            f'<tr><td>{period}{warn}</td>'
+            f'<tr><td>{period}</td>'
             f'<td>${r:,.2f}</td><td>${e:,.2f}</td><td class="{cls(profit)}">${profit:,.2f}</td>'
             f'<td>{drive} {local}</td></tr>'
         )
@@ -236,21 +229,9 @@ def build():
         rows_html.append(f'<tr class="year-sub"><td>{current_year} total</td><td>${yr_r:,.2f}</td><td>${yr_e:,.2f}</td><td class="{cls(yr_p)}">${yr_p:,.2f}</td><td></td></tr>')
     rows_html.append(f'<tr class="grand"><td>GRAND TOTAL</td><td>${grand_r:,.2f}</td><td>${grand_e:,.2f}</td><td class="{cls(grand_p)}">${grand_p:,.2f}</td><td></td></tr>')
 
-    notes_html = '''
-<p><b>Period covered:</b> Sept 2017 (first month Lauren Way appears in Cindy's books) through Dec 2020. Months earlier than Sept 2017 are not in the source data.</p>
-<p><b>Stale templates ⚠:</b> Three blocks of months in the source spreadsheets appear to have copy-pasted Total cells that were never refreshed:</p>
-<ul style="margin-top:4px">
-  <li><b>March / April / May 2018</b> — identical Rent ($1,554.76) and Expense ($1,203.83) all three months.</li>
-  <li><b>April through December 2020</b> — every month shows the same hardcoded Total Debits / Credits / Net (<code>$352.37 / $0 / -$352.37</code>), even though the line items differ each month. This is a templating artifact in the source spreadsheet, not a parser bug — verified against the raw cells in the original workbooks.</li>
-</ul>
-<p><b>"Profit" definition:</b> Rent (rental income credits) − every other debit on the Lauren Way tab (mortgage, HOA, utilities, repairs, etc.). It is NOT Net Operating Income — mortgage payments are included as expenses. To see NOI specifically, use the <a href="index.html">full dashboard</a> and toggle Mortgage off in the filter bar.</p>
-<p><b>Every row is auditable:</b> the Drive ↗ link opens Cindy's original Google Sheet for that month. The XLSX link downloads the same file from this repo.</p>
-'''
-
     html = (HTML
             .replace('__KPIS__', kpis_html)
-            .replace('__ROWS__', '\n'.join(rows_html))
-            .replace('__NOTES__', notes_html))
+            .replace('__ROWS__', '\n'.join(rows_html)))
     with open(OUT, 'w', encoding='utf-8') as f:
         f.write(html)
     print(f'Wrote {OUT}  ({os.path.getsize(OUT)} bytes)')
